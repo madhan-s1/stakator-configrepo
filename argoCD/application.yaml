@@ -1,17 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-config
+  name: my-argo-app
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/madhan-s1/stakator-configrepo.git
-    path: {{ .Values.argocd.appName }}/{{ .Values.argocd.env }}
+    path: helm  # Path to Helm chart inside repo
     targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml # Loads the values from the Helm chart 
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.argocd.destinationNamespace }}
+    namespace: my-namespace
   syncPolicy:
     automated:
       prune: true
