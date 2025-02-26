@@ -1,0 +1,18 @@
+# ArgoCD Application-specific values
+argocd:
+  appName: cf_vfa_edge
+  env: oc_unit
+  destinationNamespace: ws-b2b-domain
+
+# ConfigMap values
+configmap:
+  name: app-config
+  data:
+    ENV: "accp"
+    API_URL: "https://api.accp.example.com"
+
+# Secret values
+secret:
+  name: app-secret
+  data:
+    DB_PASSWORD: "supersecretpassword"

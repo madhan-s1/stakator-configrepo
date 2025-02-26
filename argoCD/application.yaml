@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.argocd.appName }}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/madhan-s1/stakator-configrepo.git
+    path: {{ .Values.argocd.appName }}/{{ .Values.argocd.env }}
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.argocd.destinationNamespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
