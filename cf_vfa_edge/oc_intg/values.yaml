@@ -1,15 +1,13 @@
 # ArgoCD Application-specific values
 argocd:
-  appName: cf_vfa_edge
-  env: oc_intg
   destinationNamespace: ws-b2b-intg-domain
 
 # ConfigMap values
 configmap:
   name: app-config-intg
   data:
-    ENV: "accp"
-    API_URL: "https://api.accp.example.com"
+    ENV: "intg"
+    API_URL: "https://api.intg.example.com"
 
 # Secret values
 secret:

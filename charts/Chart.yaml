@@ -1,0 +1,6 @@
+apiVersion: v2
+name: app-config
+description: A Helm chart for managing ConfigMaps and Secrets
+type: application
+version: 1.0.0
+appVersion: "1.0"

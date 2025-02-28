@@ -9,19 +9,22 @@ spec:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
         revision: "main"
         directories:
-          - path: "*/*" # ✅ Now detects {app_name}/{env_name}/ directly
+          - path: "*/*"  # ✅ Detects {app_name}/{env_name}/ automatically
   template:
     metadata:
-      name: "{{path.basename}}" # Uses env name (e.g., oc_unit)
+      name: reloader
     spec:
       project: default
       source:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
-        path: "{{path}}" # ✅ Uses {app_name}/{env_name}
+        path: "charts"
         targetRevision: main
+        helm:
+          valueFiles:
+            - {{path[0]}}/{{path[1]}}/values.yaml
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{path[0]}}" # ✅ App name becomes namespace
+        namespace: "{{ .Values.argocd.destinationNamespace }}"
       syncPolicy:
         automated:
           prune: true
