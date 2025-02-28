@@ -2,13 +2,13 @@
 argocd:
   appName: cf_vfa_edge
   env: oc_unit
-  destinationNamespace: ws-b2b-domain
+  destinationNamespace: ws-b2b-unit-domain
 
 # ConfigMap values
 configmap:
-  name: app-config
+  name: app-config-unit
   data:
-    ENV: "accp"
+    ENV: "unit"
     API_URL: "https://api.accp.example.com"
 
 # Secret values
