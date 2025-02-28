@@ -7,9 +7,9 @@ spec:
   generators:
     - git:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
-        revision: "main"
+        revision: "release-test"
         directories:
-          - path: "*/*"  # ✅ Detects {app_name}/{env_name}/ automatically
+          - path: "*/*"  # Detects all appX/oc_env directories
   template:
     metadata:
       name: reloader
@@ -17,14 +17,10 @@ spec:
       project: default
       source:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
-        path: "charts"
-        targetRevision: main
-        helm:
-          valueFiles:
-            - {{path[0]}}/{{path[1]}}/values.yaml
+        path: "{{path}}"  # Uses {app_name}/{env_name}
+        targetRevision: release-test
       destination:
         server: "https://kubernetes.default.svc"
-        namespace: "{{ .Values.argocd.destinationNamespace }}"
       syncPolicy:
         automated:
           prune: true
