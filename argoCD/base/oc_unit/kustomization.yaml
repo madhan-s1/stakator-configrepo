@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Include all apps dynamically
+resources:
+  - ../../../cf-vfa-edge/oc_unit
+  - ../../../qdro/oc_unit
