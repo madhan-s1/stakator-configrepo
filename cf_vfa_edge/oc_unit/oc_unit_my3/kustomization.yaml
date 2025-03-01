@@ -4,3 +4,4 @@ kind: Kustomization
 # Include all apps dynamically
 resources:
   - configmap.yaml
+  - configmap-test.yaml
