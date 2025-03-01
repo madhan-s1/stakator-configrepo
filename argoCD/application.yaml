@@ -9,15 +9,15 @@ spec:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
         revision: "release-test"
         directories:
-          - path: "*/*"  # Detects all appX/oc_env directories
+          - path: "*/*"
   template:
     metadata:
-      name: reloader
+      name: "{{path}}"
     spec:
       project: default
       source:
         repoURL: "https://github.com/madhan-s1/stakator-configrepo.git"
-        path: "{{path}}"  # Uses {app_name}/{env_name}
+        path: "{{path}}"
         targetRevision: release-test
       destination:
         server: "https://kubernetes.default.svc"
@@ -25,3 +25,4 @@ spec:
         automated:
           prune: true
           selfHeal: true
+  goTemplate: true  # ✅ Enables Go templating for proper evaluation
