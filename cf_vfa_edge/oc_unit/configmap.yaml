@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: test-cm-unit
+  name: test-cm-UNIT
   namespace: ws-unit-domain
 data:
   # property-like keys; each key maps to a simple value
