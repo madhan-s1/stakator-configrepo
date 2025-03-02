@@ -3,5 +3,5 @@ kind: Kustomization
 
 # Include all apps dynamically
 resources:
-  - ../../../qdro/oc_unit
+  - ../../../cf_vfa_edge/oc_intg
   - ../../../qdro/oc_intg
