@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# Include all apps dynamically
-resources:
-  - config.yaml
+configMapGenerator:
+  - name: vfa-config-jar
+    namespace: ws-unit-domain
+    files:
+      - config/vfa.jar
