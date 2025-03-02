@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 configMapGenerator:
-  - name: vfa-config-test
+  - name: vfa-config
     namespace: ws-unit-domain
     files:
       - config/vfa.jar
