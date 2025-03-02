@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/madhan-s1/stakator-configrepo.git" # Replace with your repo
     targetRevision: release-voya # Branch to track
-    path: argocd/base/oc_unit # This is where the base kustomization.yaml lives
+    path: argoCD/base/oc_unit # This is where the base kustomization.yaml lives
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
