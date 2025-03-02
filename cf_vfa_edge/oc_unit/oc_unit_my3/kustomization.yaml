@@ -6,3 +6,5 @@ configMapGenerator:
     namespace: ws-unit-domain
     files:
       - config/vfa.jar
+    options:
+      disableNameSuffixHash: true 
